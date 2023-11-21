@@ -178,29 +178,6 @@ class DashboardHelper:
                 ret.succes = False
         return ret
 
-    def skip(self):
-        return self.execute_command("skipbuffer")
-
-
-    def abort_move(self):
-        return self.execute_command("abort")
-
-
-    def get_last_interpreted_id(self):
-        return self.execute_command("statelastinterpreted")
-
-
-    def get_last_executed_id(self):
-        return self.execute_command("statelastexecuted")
-
-
-    def get_last_cleared_id(self):
-        return self.execute_command("statelastcleared")
-
-
-    def get_unexecuted_count(self):
-        return self.execute_command("stateunexecuted")
-
 
     def quit_dashboard(self):
         return self.execute_command("quit")
