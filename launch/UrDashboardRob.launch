@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<launch>
+
+	<!-- Set namespace -->
+	<!--arg name="id_robot" default="robot"/-->
+
+	<!-- Desired frequency -->
+	<arg name="desired_freq" default="1.0" />
+	<!-- Name of the example of a subscriber -->
+	<arg name="example_subscriber_name" default="example" />
+	<!-- Desired robot IP -->
+	<arg name="robot_ip" default="192.168.0.210" />
+
+	<!-- Load .yaml example -->
+	<rosparam file="$(find ur_dashboard_robotnik)/config/example.yaml" command="load" />
+
+	<!--group ns="$(arg id_robot)"-->
+
+		<!-- start UrDashboardRobotnik node -->
+		<node name="UrDashboardRob" pkg="ur_dashboard_robotnik" type="UrDashboardRob_node.py" output="screen" respawn="false">
+			<param name="desired_freq" value="$(arg desired_freq)"/>
+			<param name="example_subscriber_name" value="$(arg example_subscriber_name)"/>
+			<param name="robot_ip" value="$(arg robot_ip)"/>
+		</node>
+
+	<!--/group-->
+
+</launch>
